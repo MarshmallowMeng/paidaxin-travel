@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="styles.css?v=3" />
   </head>
-  <body>
+  <body data-active="discover">
     <div class="app">
       <header class="top-bar">
         <div class="brand">
@@ -28,8 +28,8 @@
           />
         </div>
         <div class="top-actions">
-          <a class="pill" href="#">首页</a>
-          <a class="pill" href="#">名片</a>
+          <a class="pill" href="index.html">首页</a>
+          <a class="pill" href="card.html">名片</a>
           <button type="button" class="icon-btn" aria-label="通知">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
@@ -40,19 +40,19 @@
       </header>
 
       <nav class="features" aria-label="功能入口">
-        <a class="feature-item" href="#">
+        <a class="feature-item" href="spots.html">
           <span class="feature-emoji" aria-hidden="true">📍</span>
           <span class="feature-label">景点信息</span>
         </a>
-        <a class="feature-item" href="#">
+        <a class="feature-item" href="tickets.html">
           <span class="feature-emoji" aria-hidden="true">🎫</span>
           <span class="feature-label">票务代查</span>
         </a>
-        <a class="feature-item" href="#">
+        <a class="feature-item" href="routes.html">
           <span class="feature-emoji" aria-hidden="true">🧭</span>
           <span class="feature-label">路线规划</span>
         </a>
-        <a class="feature-item" href="#">
+        <a class="feature-item" href="share.html">
           <span class="feature-emoji" aria-hidden="true">🧑‍🤝‍🧑</span>
           <span class="feature-label">旅友分享</span>
         </a>
@@ -141,35 +141,26 @@
 
       <nav class="bottom-nav" aria-label="主导航">
         <div class="bottom-nav-inner">
-          <button type="button" class="nav-item is-active" data-nav>
+          <a class="nav-item" href="index.html" data-nav="discover">
             <span class="nav-emoji" aria-hidden="true">🔍</span>
             <span>发现</span>
-          </button>
-          <button type="button" class="nav-item" data-nav>
+          </a>
+          <a class="nav-item" href="local.html" data-nav="local">
             <span class="nav-emoji" aria-hidden="true">🍴</span>
             <span>本地推荐</span>
-          </button>
-          <button type="button" class="nav-item" data-nav>
+          </a>
+          <a class="nav-item" href="guide.html" data-nav="guide">
             <span class="nav-emoji" aria-hidden="true">📖</span>
             <span>出行指南</span>
-          </button>
-          <button type="button" class="nav-item" data-nav>
+          </a>
+          <a class="nav-item" href="me.html" data-nav="me">
             <span class="nav-emoji" aria-hidden="true">👤</span>
             <span>我的</span>
-          </button>
+          </a>
         </div>
       </nav>
     </div>
 
-    <script>
-      document.querySelectorAll("[data-nav]").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          document.querySelectorAll("[data-nav]").forEach(function (b) {
-            b.classList.remove("is-active");
-          });
-          btn.classList.add("is-active");
-        });
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>

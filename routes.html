@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f8" />
+    <title>派大欣 · 路线规划</title>
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body data-active="discover">
+    <div class="app">
+      <header class="top-bar">
+        <div class="brand">
+          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
+        </div>
+        <div class="top-actions">
+          <a class="pill" href="index.html">首页</a>
+          <a class="pill" href="card.html">名片</a>
+          <button type="button" class="icon-btn" aria-label="通知" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="section" aria-labelledby="routes-title">
+          <h2 id="routes-title" class="section-title">路线规划</h2>
+          <div class="rec-strip" aria-label="路线列表">
+            <article class="rec-card">
+              <img class="rec-cover" src="assets/opt/pdx_pic1.jpg?v=1" alt="经典线" width="320" height="200" loading="eager" />
+              <div class="rec-body">
+                <h3 class="rec-title">莫斯科 + 圣彼得堡 · 5 天 4 晚</h3>
+                <p class="rec-sub">城市漫步 · 博物馆 · 夜景</p>
+                <p class="rec-desc">示例：点击“景点信息/出行指南”继续跳转。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="主导航">
+        <div class="bottom-nav-inner">
+          <a class="nav-item" href="index.html" data-nav="discover">
+            <span class="nav-emoji" aria-hidden="true">🔍</span>
+            <span>发现</span>
+          </a>
+          <a class="nav-item" href="local.html" data-nav="local">
+            <span class="nav-emoji" aria-hidden="true">🍴</span>
+            <span>本地推荐</span>
+          </a>
+          <a class="nav-item" href="guide.html" data-nav="guide">
+            <span class="nav-emoji" aria-hidden="true">📖</span>
+            <span>出行指南</span>
+          </a>
+          <a class="nav-item" href="me.html" data-nav="me">
+            <span class="nav-emoji" aria-hidden="true">👤</span>
+            <span>我的</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
