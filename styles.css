@@ -624,6 +624,87 @@ main {
   margin-top: 0;
 }
 
+/* —— 信息提示条(信息时间/免责)—— */
+.notice {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  background: #fafafa;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.notice strong {
+  color: var(--text);
+}
+
+/* —— 景点详情迷你信息行 —— */
+.spot-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.spot-meta dt {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.spot-meta dd {
+  margin: 0;
+  color: var(--text);
+}
+
+/* —— 长文本主体(指南页/资讯详情)—— */
+.prose {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.prose p {
+  margin: 0 0 10px;
+}
+
+.prose h3 {
+  margin: 18px 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.prose h4 {
+  margin: 12px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prose ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+
+.prose ul li {
+  margin: 4px 0;
+}
+
+.prose .muted {
+  color: var(--muted);
+}
+
+.prose-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
 /* —— 我的 / 名片 专用 —— */
 
 .profile-banner {
