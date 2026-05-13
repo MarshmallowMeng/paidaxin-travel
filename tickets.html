@@ -5,64 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣 · 票务代查</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="discover">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <main>
         <section class="section" aria-labelledby="tickets-title">
-          <h2 id="tickets-title" class="section-title">票务代查</h2>
-          <div class="news-list" aria-label="票务入口">
-            <div class="news-item" role="group" aria-label="提示">
-              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=1" alt="票务" width="192" height="192" loading="eager" />
+          <div class="section-head">
+            <h2 id="tickets-title" class="section-title">票务代查</h2>
+          </div>
+          <p style="margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.6;">
+            支持代查 / 代购:芭蕾(大剧院 · 马林斯基)、马戏、博物馆联票、Sapsan 高铁、跨城火车。
+            填表提交后将以邮件方式发送给派大欣,通常 24 小时内回复报价与方案。
+          </p>
+
+          <form class="form-card" id="ticket-form" novalidate>
+            <div class="form-row">
+              <label class="form-label" for="t-type">想代查的类型</label>
+              <select class="form-select" id="t-type" name="type" required>
+                <option value="">请选择</option>
+                <option>芭蕾舞剧</option>
+                <option>歌剧 / 音乐会</option>
+                <option>马戏 / 冰上演出</option>
+                <option>博物馆 / 联票</option>
+                <option>Sapsan 高铁</option>
+                <option>跨城火车 / 卧铺</option>
+                <option>其他(备注里写)</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="t-date">出行 / 演出日期</label>
+              <input class="form-input" type="date" id="t-date" name="date" required />
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="t-people">人数</label>
+              <input class="form-input" type="number" min="1" max="20" value="2" id="t-people" name="people" required />
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="t-target">具体演出 / 场次 / 座位区</label>
+              <input class="form-input" type="text" id="t-target" name="target" placeholder="如:大剧院《天鹅湖》/ 池座中区" />
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="t-contact">联系方式(微信号 / 邮箱 / 手机)</label>
+              <input class="form-input" type="text" id="t-contact" name="contact" required placeholder="必填,方便派大欣回复你" />
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="t-note">备注</label>
+              <textarea class="form-textarea" id="t-note" name="note" placeholder="预算上限、是否能改期、儿童年龄等"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">提交代查请求</button>
+          </form>
+
+          <div class="section-head" style="margin-top:24px;">
+            <h2 class="section-title">代查案例</h2>
+          </div>
+          <div class="news-list" aria-label="代查案例">
+            <div class="news-item" role="group">
+              <img class="news-thumb" src="assets/opt/pdx_pic4.jpg?v=4" alt="芭蕾代购案例" width="192" height="192" loading="eager" />
               <div class="news-text">
-                <h3 class="news-title">示例页：后续可接入表单/客服</h3>
-                <p class="news-summary">目前是纯静态页面跳转占位。你如果要“填写信息→提交”，下一步可以接：表单 + 邮箱/飞书/后端接口。</p>
+                <h3 class="news-title">大剧院《天鹅湖》· 池座中区双人</h3>
+                <p class="news-summary">提前 21 天锁票,含中文确认单与剧院门口接应。</p>
+                <div class="tag-row">
+                  <span class="tag">芭蕾</span>
+                  <span class="tag">含接应</span>
+                </div>
+              </div>
+            </div>
+            <div class="news-item" role="group">
+              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=4" alt="Sapsan 案例" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">Sapsan 高铁 · 莫斯科 → 圣彼得堡</h3>
+                <p class="news-summary">早班车 4 小时直达,代购指定车厢、相邻座位。</p>
+                <div class="tag-row">
+                  <span class="tag">高铁</span>
+                  <span class="tag">指定车厢</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
+    <script>
+      (() => {
+        const form = document.getElementById("ticket-form");
+        if (!form) return;
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const data = new FormData(form);
+          const lines = [
+            "票务代查请求",
+            "------------",
+            `类型:${data.get("type") || "(未选)"}`,
+            `日期:${data.get("date") || "(未填)"}`,
+            `人数:${data.get("people") || "(未填)"}`,
+            `具体演出/座位:${data.get("target") || "(未填)"}`,
+            `联系方式:${data.get("contact") || "(未填)"}`,
+            `备注:${data.get("note") || "(无)"}`,
+          ];
+          const body = encodeURIComponent(lines.join("\n"));
+          const subject = encodeURIComponent("[票务代查] " + (data.get("type") || ""));
+          window.location.href = `mailto:hi@paidaxin.travel?subject=${subject}&body=${body}`;
+        });
+      })();
+    </script>
   </body>
 </html>
-

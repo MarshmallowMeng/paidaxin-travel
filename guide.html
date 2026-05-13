@@ -5,83 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣 · 出行指南</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="guide">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <nav class="features" aria-label="指南分类">
-        <a class="feature-item" href="tickets.html">
+        <a class="feature-item" href="#visa">
           <span class="feature-emoji" aria-hidden="true">🛂</span>
           <span class="feature-label">签证入境</span>
         </a>
-        <a class="feature-item" href="routes.html">
+        <a class="feature-item" href="#transport">
           <span class="feature-emoji" aria-hidden="true">🚇</span>
           <span class="feature-label">交通出行</span>
         </a>
-        <a class="feature-item" href="spots.html">
+        <a class="feature-item" href="#budget">
           <span class="feature-emoji" aria-hidden="true">💰</span>
           <span class="feature-label">预算省钱</span>
         </a>
-        <a class="feature-item" href="share.html">
+        <a class="feature-item" href="#tips">
           <span class="feature-emoji" aria-hidden="true">📌</span>
           <span class="feature-label">注意事项</span>
         </a>
       </nav>
 
       <main>
-        <section class="section" aria-labelledby="guide-title">
-          <h2 id="guide-title" class="section-title">出行指南</h2>
-          <div class="news-list" aria-label="指南列表">
+        <section id="visa" class="section" aria-labelledby="visa-title">
+          <div class="section-head">
+            <h2 id="visa-title" class="section-title">签证入境</h2>
+          </div>
+          <div class="news-list" aria-label="签证入境">
             <a class="news-item" href="tickets.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=1" alt="出行须知" width="192" height="192" loading="eager" />
+              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=4" alt="签证入境" width="192" height="192" loading="eager" />
               <div class="news-text">
-                <h3 class="news-title">「出行须知」入境与票务实用指南</h3>
-                <p class="news-summary">点击进入“票务代查”示例页（你可以在那页继续补充更细的内容）。</p>
+                <h3 class="news-title">「最新政策」赴俄签证与入境要点</h3>
+                <p class="news-summary">签证类型、所需材料、办理周期、海关申报与边检沟通建议。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="transport" class="section" aria-labelledby="transport-title">
+          <div class="section-head">
+            <h2 id="transport-title" class="section-title">交通出行</h2>
+          </div>
+          <div class="news-list" aria-label="交通出行">
+            <a class="news-item" href="routes.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic1.jpg?v=4" alt="交通出行" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「如何高效移动」城内交通与城际衔接</h3>
+                <p class="news-summary">地铁、巴士、Sapsan 高铁、机场快线;电子票/Troika 卡使用方法。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="budget" class="section" aria-labelledby="budget-title">
+          <div class="section-head">
+            <h2 id="budget-title" class="section-title">预算省钱</h2>
+          </div>
+          <div class="news-list" aria-label="预算省钱">
+            <a class="news-item" href="local.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic3.jpg?v=4" alt="预算省钱" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「花钱有数」每日预算与替代方案</h3>
+                <p class="news-summary">参考人均、餐饮档位、景点联票、淡旺季价差与省钱小技巧。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="tips" class="section" aria-labelledby="tips-title">
+          <div class="section-head">
+            <h2 id="tips-title" class="section-title">注意事项</h2>
+          </div>
+          <div class="news-list" aria-label="注意事项">
+            <a class="news-item" href="share.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic4.jpg?v=4" alt="注意事项" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「冷暖与安全」着装、通讯与紧急联系</h3>
+                <p class="news-summary">分季节着装清单、SIM/eSIM 选择、翻译工具、突发情况下的求助方式。</p>
               </div>
             </a>
           </div>
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
   </body>
 </html>
-

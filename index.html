@@ -12,32 +12,11 @@
       name="description"
       content="莫斯科与圣彼得堡经典线路、出行须知与实用指南。"
     />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="discover">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img
-            class="brand-avatar"
-            src="assets/opt/派大欣.jpg?v=1"
-            alt="派大欣"
-            width="44"
-            height="44"
-            loading="eager"
-          />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <nav class="features" aria-label="功能入口">
         <a class="feature-item" href="spots.html">
@@ -60,12 +39,15 @@
 
       <main>
         <section class="section" aria-labelledby="core-title">
-          <h2 id="core-title" class="section-title">核心推荐区</h2>
+          <div class="section-head">
+            <h2 id="core-title" class="section-title">核心推荐区</h2>
+            <a class="section-more" href="routes.html">全部 ›</a>
+          </div>
           <div class="rec-strip" aria-label="核心推荐横向滑动">
             <article class="rec-card">
               <img
                 class="rec-cover"
-                src="assets/opt/pdx_pic1.jpg?v=1"
+                src="assets/opt/pdx_pic1.jpg?v=4"
                 alt="莫斯科与圣彼得堡城市风光"
                 width="320"
                 height="200"
@@ -82,7 +64,7 @@
             <article class="rec-card">
               <img
                 class="rec-cover"
-                src="assets/opt/pdx_pic3.jpg?v=1"
+                src="assets/opt/pdx_pic3.jpg?v=4"
                 alt="极光之约莫圣双城与摩尔曼斯克定制路线"
                 width="320"
                 height="200"
@@ -100,12 +82,15 @@
         </section>
 
         <section class="section" aria-labelledby="news-title">
-          <h2 id="news-title" class="section-title">最新资讯区</h2>
+          <div class="section-head">
+            <h2 id="news-title" class="section-title">最新资讯区</h2>
+            <a class="section-more" href="guide.html">全部 ›</a>
+          </div>
           <div class="news-list" aria-label="最新资讯纵向滑动">
-            <a class="news-item" href="#">
+            <a class="news-item" href="guide.html">
               <img
                 class="news-thumb"
-                src="assets/opt/pdx_pic2.jpg?v=1"
+                src="assets/opt/pdx_pic2.jpg?v=4"
                 alt="出行须知俄罗斯入境与票务实用指南"
                 width="192"
                 height="192"
@@ -114,15 +99,15 @@
               <div class="news-text">
                 <h3 class="news-title">「出行须知」俄罗斯入境与票务实用指南</h3>
                 <p class="news-summary">
-                  所有赴俄旅行都始于一个清晰的规划：“我需要提前准备什么？”
-                  这份指南，正是用最低成本帮你搞定入境、票务与当地合规问题。
+                  所有赴俄旅行都始于一个清晰的规划:"我需要提前准备什么?"
+                  这份指南,正是用最低成本帮你搞定入境、票务与当地合规问题。
                 </p>
               </div>
             </a>
-            <a class="news-item" href="#">
+            <a class="news-item" href="local.html">
               <img
                 class="news-thumb"
-                src="assets/opt/pdx_pic4.jpg?v=1"
+                src="assets/opt/pdx_pic4.jpg?v=4"
                 alt="俄式生活当地特色体验预约与参与全攻略"
                 width="192"
                 height="192"
@@ -131,7 +116,7 @@
               <div class="news-text">
                 <h3 class="news-title">「俄式生活」当地特色体验预约与参与全攻略</h3>
                 <p class="news-summary">
-                  从俄式桑拿、芭蕾舞剧后台参观到金环小镇手作工坊，整理热门体验的预约方式、着装要求与参与时长，带你沉浸式融入俄罗斯日常，解锁旅行之外的文化记忆。
+                  从俄式桑拿、芭蕾舞剧后台参观到金环小镇手作工坊,整理热门体验的预约方式、着装要求与参与时长,带你沉浸式融入俄罗斯日常,解锁旅行之外的文化记忆。
                 </p>
               </div>
             </a>
@@ -139,28 +124,9 @@
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
   </body>
 </html>

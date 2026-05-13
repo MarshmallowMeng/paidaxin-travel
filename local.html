@@ -5,83 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣 · 本地推荐</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="local">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <nav class="features" aria-label="快捷入口">
-        <a class="feature-item" href="spots.html">
+        <a class="feature-item" href="#food">
           <span class="feature-emoji" aria-hidden="true">🍜</span>
           <span class="feature-label">美食</span>
         </a>
-        <a class="feature-item" href="spots.html">
+        <a class="feature-item" href="#stay">
           <span class="feature-emoji" aria-hidden="true">🏨</span>
           <span class="feature-label">住宿</span>
         </a>
-        <a class="feature-item" href="spots.html">
+        <a class="feature-item" href="#shop">
           <span class="feature-emoji" aria-hidden="true">🛍️</span>
           <span class="feature-label">购物</span>
         </a>
-        <a class="feature-item" href="spots.html">
+        <a class="feature-item" href="#show">
           <span class="feature-emoji" aria-hidden="true">🎭</span>
           <span class="feature-label">演出</span>
         </a>
       </nav>
 
       <main>
-        <section class="section" aria-labelledby="local-title">
-          <h2 id="local-title" class="section-title">本地推荐</h2>
-          <div class="news-list" aria-label="推荐列表">
+        <section id="food" class="section" aria-labelledby="food-title">
+          <div class="section-head">
+            <h2 id="food-title" class="section-title">美食</h2>
+          </div>
+          <div class="news-list" aria-label="美食推荐">
             <a class="news-item" href="spots.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=1" alt="本地推荐" width="192" height="192" loading="eager" />
+              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=4" alt="美食推荐" width="192" height="192" loading="eager" />
               <div class="news-text">
                 <h3 class="news-title">「精选餐厅」避雷清单与预约建议</h3>
-                <p class="news-summary">点击进入示例页面。你给我真实文案/图片后，我再把这块做成可维护的推荐列表。</p>
+                <p class="news-summary">人均、招牌菜、是否需要预约、外语菜单情况——后续接入真实餐厅信息后,这里会变成可筛选的推荐列表。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="stay" class="section" aria-labelledby="stay-title">
+          <div class="section-head">
+            <h2 id="stay-title" class="section-title">住宿</h2>
+          </div>
+          <div class="news-list" aria-label="住宿推荐">
+            <a class="news-item" href="spots.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic1.jpg?v=4" alt="住宿推荐" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「住哪里更顺」城区选择与避坑</h3>
+                <p class="news-summary">莫斯科与圣彼得堡推荐落脚的核心区域、地铁通达度、酒店/民宿对比。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="shop" class="section" aria-labelledby="shop-title">
+          <div class="section-head">
+            <h2 id="shop-title" class="section-title">购物</h2>
+          </div>
+          <div class="news-list" aria-label="购物推荐">
+            <a class="news-item" href="spots.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic3.jpg?v=4" alt="购物推荐" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「带什么回家」纪念品 & 当地特产</h3>
+                <p class="news-summary">伴手礼推荐、采购地点、退税须知。</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section id="show" class="section" aria-labelledby="show-title">
+          <div class="section-head">
+            <h2 id="show-title" class="section-title">演出</h2>
+            <a class="section-more" href="tickets.html">代查 ›</a>
+          </div>
+          <div class="news-list" aria-label="演出推荐">
+            <a class="news-item" href="tickets.html">
+              <img class="news-thumb" src="assets/opt/pdx_pic4.jpg?v=4" alt="演出推荐" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">「不踩坑」芭蕾、马戏、音乐厅</h3>
+                <p class="news-summary">大剧院、马林斯基、莫斯科大马戏的购票方式、推荐档期与座位选择。</p>
               </div>
             </a>
           </div>
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
   </body>
 </html>
-

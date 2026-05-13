@@ -5,65 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣 · 路线规划</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="discover">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <main>
         <section class="section" aria-labelledby="routes-title">
-          <h2 id="routes-title" class="section-title">路线规划</h2>
-          <div class="rec-strip" aria-label="路线列表">
+          <div class="section-head">
+            <h2 id="routes-title" class="section-title">路线规划</h2>
+          </div>
+
+          <div class="rec-strip" aria-label="主题路线">
             <article class="rec-card">
-              <img class="rec-cover" src="assets/opt/pdx_pic1.jpg?v=1" alt="经典线" width="320" height="200" loading="eager" />
+              <img class="rec-cover" src="assets/opt/pdx_pic1.jpg?v=4" alt="双城经典 5 日" width="320" height="200" loading="eager" />
               <div class="rec-body">
-                <h3 class="rec-title">莫斯科 + 圣彼得堡 · 5 天 4 晚</h3>
+                <h3 class="rec-title">双城经典 · 5 天 4 晚</h3>
                 <p class="rec-sub">城市漫步 · 博物馆 · 夜景</p>
-                <p class="rec-desc">示例：点击“景点信息/出行指南”继续跳转。</p>
+                <p class="rec-desc">适合家庭/学生党的轻量行程。</p>
               </div>
             </article>
+            <article class="rec-card">
+              <img class="rec-cover" src="assets/opt/pdx_pic3.jpg?v=4" alt="极光之约 9 日" width="320" height="200" loading="eager" />
+              <div class="rec-body">
+                <h3 class="rec-title">极光之约 · 9 天 8 晚</h3>
+                <p class="rec-sub">摩尔曼斯克 · 极光观测 · 雪地体验</p>
+                <p class="rec-desc">情侣 / 摄影爱好者的深度行程。</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="chip-row" role="tablist" aria-label="切换行程">
+            <button class="chip is-active" type="button" role="tab" data-route="classic5">经典 5 日</button>
+            <button class="chip" type="button" role="tab" data-route="aurora9">极光 9 日</button>
+            <button class="chip" type="button" role="tab" data-route="oneday">一日精华</button>
+          </div>
+
+          <!-- 经典 5 日 -->
+          <div class="route-plan" data-plan="classic5" style="margin-top:6px;">
+            <div class="timeline-day">Day 1 · 抵达莫斯科</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">14:00 · 谢列梅捷沃机场</p>
+                <h4 class="timeline-title">机场快线 → 市区酒店</h4>
+                <p class="timeline-desc">Aeroexpress 35 分钟到白俄罗斯站,换乘地铁环线。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">19:00 · 红场夜景</p>
+                <h4 class="timeline-title">红场 + 圣瓦西里大教堂</h4>
+                <p class="timeline-desc">夜灯下的彩色洋葱顶最适合拍照,人也比白天少。</p>
+              </div>
+            </div>
+
+            <div class="timeline-day">Day 2 · 莫斯科核心</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">09:30 · 克里姆林宫</p>
+                <h4 class="timeline-title">兵器库 + 教堂广场</h4>
+                <p class="timeline-desc">提前在线购票指定时段,需排队安检 ~20 分钟。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">14:00 · 特列季亚科夫</p>
+                <h4 class="timeline-title">特列季亚科夫画廊</h4>
+                <p class="timeline-desc">俄罗斯艺术宝库,推荐 2.5 小时。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">19:30 · 大剧院</p>
+                <h4 class="timeline-title">芭蕾或歌剧(如有票)</h4>
+                <p class="timeline-desc">没抢到票?池座中区代购可联系派大欣。</p>
+              </div>
+            </div>
+
+            <div class="timeline-day">Day 3 · Sapsan 转场圣彼得堡</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">07:00 · 列宁格勒站</p>
+                <h4 class="timeline-title">Sapsan 高铁 4 小时直达</h4>
+                <p class="timeline-desc">推荐早班车,下午有完整时间逛涅瓦大街。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">15:00 · 涅瓦大街</p>
+                <h4 class="timeline-title">喀山大教堂 + 滴血大教堂</h4>
+                <p class="timeline-desc">两座教堂相距 800 米,顺路完成。</p>
+              </div>
+            </div>
+
+            <div class="timeline-day">Day 4 · 冬宫与艺术日</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">10:30 · 冬宫</p>
+                <h4 class="timeline-title">埃尔米塔什博物馆</h4>
+                <p class="timeline-desc">建议 4 小时起;留意周一闭馆,提前购在线票。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">17:00 · 涅瓦河</p>
+                <h4 class="timeline-title">游船 + 黄昏开桥</h4>
+                <p class="timeline-desc">夏季白夜期开桥时间约凌晨,可改为黄昏游船。</p>
+              </div>
+            </div>
+
+            <div class="timeline-day">Day 5 · 彼得霍夫与返程</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">09:30 · 彼得霍夫</p>
+                <h4 class="timeline-title">夏宫喷泉花园</h4>
+                <p class="timeline-desc">水翼船 30 分钟可达,5–10 月喷泉开放。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">17:00 · 普尔科沃机场</p>
+                <h4 class="timeline-title">值机 → 离境</h4>
+                <p class="timeline-desc">推荐预留 3 小时,机场到市区高峰期较堵。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 极光 9 日 -->
+          <div class="route-plan" data-plan="aurora9" hidden>
+            <div class="timeline-day">Day 1–2 · 莫斯科速览</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">红场、克里姆林宫、地铁巡游</h4>
+                <p class="timeline-desc">两天打卡核心景点,把"必看"清掉,后面才有时间追极光。</p>
+              </div>
+            </div>
+            <div class="timeline-day">Day 3 · 飞往摩尔曼斯克</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">夜班抵达,入住极光酒店</h4>
+                <p class="timeline-desc">建议直接选有玻璃屋顶的房型,降低天气波动风险。</p>
+              </div>
+            </div>
+            <div class="timeline-day">Day 4–5 · 极光 + 雪地</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">极光团 / 哈士奇雪橇 / 萨米村</h4>
+                <p class="timeline-desc">两晚追光,白天体验雪地项目,看天气调整顺序。</p>
+              </div>
+            </div>
+            <div class="timeline-day">Day 6 · 飞圣彼得堡</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">下午抵达,涅瓦大街晚餐</h4>
+                <p class="timeline-desc">从极地直接切换到帝都氛围。</p>
+              </div>
+            </div>
+            <div class="timeline-day">Day 7–8 · 圣彼得堡深度</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">冬宫 · 滴血大教堂 · 彼得霍夫</h4>
+                <p class="timeline-desc">夏宫冬季暂停喷泉,改为叶卡捷琳娜宫琥珀厅。</p>
+              </div>
+            </div>
+            <div class="timeline-day">Day 9 · 返程</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4 class="timeline-title">普尔科沃机场离境</h4>
+                <p class="timeline-desc">早班离境前可补一段早午餐+伴手礼采购。</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 一日精华 -->
+          <div class="route-plan" data-plan="oneday" hidden>
+            <div class="timeline-day">莫斯科 · 一日精华</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-time">09:00</p>
+                <h4 class="timeline-title">红场 + 圣瓦西里大教堂</h4>
+                <p class="timeline-desc">早晨人少,适合出片。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">11:00</p>
+                <h4 class="timeline-title">克里姆林宫 · 教堂广场</h4>
+                <p class="timeline-desc">主线:伊万大帝钟楼 → 圣母升天大教堂。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">14:30</p>
+                <h4 class="timeline-title">阿尔巴特街午餐 + 闲逛</h4>
+                <p class="timeline-desc">推荐俄式格鲁吉亚菜。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">17:00</p>
+                <h4 class="timeline-title">莫斯科地铁巡游</h4>
+                <p class="timeline-desc">挑 4–5 个最美车站打卡:共青团、新村、马雅可夫斯基。</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-time">20:00</p>
+                <h4 class="timeline-title">麻雀山观景台</h4>
+                <p class="timeline-desc">俯瞰卢日尼基与莫斯科河收官。</p>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
+    <script>
+      (() => {
+        const chips = document.querySelectorAll(".chip[data-route]");
+        const plans = document.querySelectorAll(".route-plan");
+        if (!chips.length) return;
+        chips.forEach((chip) => {
+          chip.addEventListener("click", () => {
+            const key = chip.dataset.route;
+            chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+            plans.forEach((p) => {
+              if (p.dataset.plan === key) p.removeAttribute("hidden");
+              else p.setAttribute("hidden", "");
+            });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
-

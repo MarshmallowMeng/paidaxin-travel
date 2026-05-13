@@ -5,64 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣 · 景点信息</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body data-active="discover">
     <div class="app">
-      <header class="top-bar">
-        <div class="brand">
-          <img class="brand-avatar" src="assets/opt/派大欣.jpg?v=1" alt="派大欣" width="44" height="44" loading="eager" />
-        </div>
-        <div class="top-actions">
-          <a class="pill" href="index.html">首页</a>
-          <a class="pill" href="card.html">名片</a>
-          <button type="button" class="icon-btn" aria-label="通知" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <div data-include="topbar"></div>
 
       <main>
         <section class="section" aria-labelledby="spots-title">
-          <h2 id="spots-title" class="section-title">景点信息</h2>
-          <div class="news-list" aria-label="景点列表">
-            <a class="news-item" href="routes.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic1.jpg?v=1" alt="景点示例" width="192" height="192" loading="eager" />
+          <div class="section-head">
+            <h2 id="spots-title" class="section-title">景点信息</h2>
+          </div>
+
+          <div class="chip-row" role="tablist" aria-label="城市筛选">
+            <button class="chip is-active" type="button" data-city="all">全部</button>
+            <button class="chip" type="button" data-city="moscow">莫斯科</button>
+            <button class="chip" type="button" data-city="spb">圣彼得堡</button>
+            <button class="chip" type="button" data-city="ring">金环</button>
+            <button class="chip" type="button" data-city="murmansk">摩尔曼斯克</button>
+          </div>
+
+          <div class="news-list" aria-label="景点列表" id="spot-list">
+
+            <a class="news-item" href="routes.html" data-city="moscow">
+              <img class="news-thumb" src="assets/opt/pdx_pic1.jpg?v=4" alt="红场与圣瓦西里大教堂" width="192" height="192" loading="eager" />
               <div class="news-text">
-                <h3 class="news-title">示例：冬宫博物馆</h3>
-                <p class="news-summary">开放时间/门票/排队建议/交通方式/附近餐厅。后续你提供内容我再补齐为真实景点卡片。</p>
+                <h3 class="news-title">红场 + 圣瓦西里大教堂 · Красная площадь</h3>
+                <p class="news-summary">莫斯科的心脏与城市名片,夜景打卡首选。</p>
+                <div class="tag-row">
+                  <span class="tag">莫斯科</span>
+                  <span class="tag">免费</span>
+                  <span class="tag">建议 1.5h</span>
+                  <span class="tag">地铁:革命广场站</span>
+                </div>
               </div>
             </a>
+
+            <a class="news-item" href="routes.html" data-city="moscow">
+              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=4" alt="克里姆林宫" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">克里姆林宫 · Московский Кремль</h3>
+                <p class="news-summary">兵器库 + 教堂广场,需提前在线选时段。周四闭馆。</p>
+                <div class="tag-row">
+                  <span class="tag">莫斯科</span>
+                  <span class="tag">门票 ₽1000+</span>
+                  <span class="tag">建议 3h</span>
+                  <span class="tag">需安检</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="moscow">
+              <img class="news-thumb" src="assets/opt/pdx_pic3.jpg?v=4" alt="莫斯科地铁巡游" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">莫斯科地铁巡游 · Метро</h3>
+                <p class="news-summary">"地下宫殿":共青团、新村、马雅可夫斯基等 5 站串联。</p>
+                <div class="tag-row">
+                  <span class="tag">莫斯科</span>
+                  <span class="tag">单程 ₽62</span>
+                  <span class="tag">建议 2h</span>
+                  <span class="tag">非高峰更好拍</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="spb">
+              <img class="news-thumb" src="assets/opt/pdx_pic4.jpg?v=4" alt="冬宫" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">冬宫 · Эрмитаж</h3>
+                <p class="news-summary">埃尔米塔什博物馆。周一闭馆;在线票 + 早场最稳。</p>
+                <div class="tag-row">
+                  <span class="tag">圣彼得堡</span>
+                  <span class="tag">门票 ₽500+</span>
+                  <span class="tag">建议 4h+</span>
+                  <span class="tag">周一闭馆</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="spb">
+              <img class="news-thumb" src="assets/opt/pdx_pic1.jpg?v=4" alt="滴血大教堂" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">滴血大教堂 · Спас на Крови</h3>
+                <p class="news-summary">马赛克镶嵌艺术天花板,涅瓦大街边步行可达。</p>
+                <div class="tag-row">
+                  <span class="tag">圣彼得堡</span>
+                  <span class="tag">门票 ₽450</span>
+                  <span class="tag">建议 1h</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="spb">
+              <img class="news-thumb" src="assets/opt/pdx_pic2.jpg?v=4" alt="彼得霍夫" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">彼得霍夫(夏宫) · Петергоф</h3>
+                <p class="news-summary">喷泉花园仅 5–10 月开放,水翼船 30 分钟到。</p>
+                <div class="tag-row">
+                  <span class="tag">圣彼得堡</span>
+                  <span class="tag">联票 ₽1200+</span>
+                  <span class="tag">建议半日</span>
+                  <span class="tag">水翼船最快</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="ring">
+              <img class="news-thumb" src="assets/opt/pdx_pic3.jpg?v=4" alt="谢尔吉耶夫镇" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">谢尔吉耶夫 · Сергиев Посад</h3>
+                <p class="news-summary">金环最近的小镇,从莫斯科 1.5 小时火车直达。</p>
+                <div class="tag-row">
+                  <span class="tag">金环</span>
+                  <span class="tag">单程 ₽200</span>
+                  <span class="tag">建议一日</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="news-item" href="routes.html" data-city="murmansk">
+              <img class="news-thumb" src="assets/opt/pdx_pic4.jpg?v=4" alt="摩尔曼斯克极光" width="192" height="192" loading="eager" />
+              <div class="news-text">
+                <h3 class="news-title">摩尔曼斯克 极光观测 · Мурманск</h3>
+                <p class="news-summary">11–3 月最佳;追光团出发点通常远离市区光污染。</p>
+                <div class="tag-row">
+                  <span class="tag">摩尔曼斯克</span>
+                  <span class="tag">追光团 ₽5000+</span>
+                  <span class="tag">建议 2 晚</span>
+                  <span class="tag">极地装备</span>
+                </div>
+              </div>
+            </a>
+
           </div>
         </section>
       </main>
 
-      <nav class="bottom-nav" aria-label="主导航">
-        <div class="bottom-nav-inner">
-          <a class="nav-item" href="index.html" data-nav="discover">
-            <span class="nav-emoji" aria-hidden="true">🔍</span>
-            <span>发现</span>
-          </a>
-          <a class="nav-item" href="local.html" data-nav="local">
-            <span class="nav-emoji" aria-hidden="true">🍴</span>
-            <span>本地推荐</span>
-          </a>
-          <a class="nav-item" href="guide.html" data-nav="guide">
-            <span class="nav-emoji" aria-hidden="true">📖</span>
-            <span>出行指南</span>
-          </a>
-          <a class="nav-item" href="me.html" data-nav="me">
-            <span class="nav-emoji" aria-hidden="true">👤</span>
-            <span>我的</span>
-          </a>
-        </div>
-      </nav>
+      <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=4"></script>
+    <script>
+      (() => {
+        const chips = document.querySelectorAll(".chip[data-city]");
+        const items = document.querySelectorAll("#spot-list [data-city]");
+        if (!chips.length) return;
+        chips.forEach((chip) => {
+          chip.addEventListener("click", () => {
+            const key = chip.dataset.city;
+            chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+            items.forEach((it) => {
+              if (key === "all" || it.dataset.city === key) it.style.display = "";
+              else it.style.display = "none";
+            });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
-
