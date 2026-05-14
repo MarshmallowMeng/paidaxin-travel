@@ -84,7 +84,7 @@ window.SHOW_DB = {
     title: "米哈伊洛夫斯基剧院",
     ru: "Михайловский театр",
     city: "spb",
-    img: "isaac",
+    img: "mikhailovsky",
     lead: "圣彼得堡第二大芭蕾 / 歌剧院,1833 年建成,以经典剧目 + 实验剧目交错著名。",
     history: [
       "1833 年由建筑师 Alexander Bryullov 设计,以米哈伊尔大公命名,起初是皇家私人剧院。",
@@ -182,7 +182,7 @@ window.SHOW_DB = {
     title: "尼库林大马戏 · 旧址",
     ru: "Цирк Никулина на Цветном бульваре",
     city: "moscow",
-    img: "circus",
+    img: "nikulin-circus",
     lead: "莫斯科市区最经典的国民马戏团,以小丑表演传统出名,Tsvetnoy 大街地铁站旁。",
     history: [
       "1880 年开业,是俄罗斯最古老的马戏场地之一。",
@@ -243,7 +243,7 @@ window.SHOW_DB = {
     composer: "彼得·伊里奇·柴可夫斯基(P.I. Tchaikovsky)",
     choreographer: "马里乌斯·佩季帕 + 列夫·伊万诺夫(Marius Petipa, Lev Ivanov)",
     premiere: "1877 年莫斯科大剧院首演 · 1895 年圣彼得堡马林斯基定本",
-    img: "bolshoi",
+    img: "swan-lake",
     lead: "古典芭蕾的“圣经”,王子齐格弗里德 + 被诅咒的天鹅公主奥黛特之间的爱情悲剧。",
     plot: [
       "第一幕:王子齐格弗里德的成年舞会,母亲催他选妻,王子郁闷出走森林。",
@@ -278,7 +278,7 @@ window.SHOW_DB = {
     composer: "彼得·伊里奇·柴可夫斯基",
     choreographer: "列夫·伊万诺夫(原版,1892)",
     premiere: "1892 年圣彼得堡马林斯基剧院首演",
-    img: "mariinsky",
+    img: "nutcracker",
     lead: '改编自霍夫曼童话,女孩玛丽圣诞夜被胡桃夹子王子带去糖果王国冒险——西方"圣诞档"标配。',
     plot: [
       "第一幕:圣诞夜,玛丽收到教父送的胡桃夹子娃娃,夜里梦中娃娃变成王子,带她对抗鼠王军团。",
@@ -311,7 +311,7 @@ window.SHOW_DB = {
     composer: "彼得·伊里奇·柴可夫斯基",
     choreographer: "马里乌斯·佩季帕",
     premiere: "1890 年圣彼得堡马林斯基剧院首演",
-    img: "mariinsky",
+    img: "sleeping-beauty",
     lead: "佩季帕 + 柴可夫斯基的巅峰之作,公主奥罗拉在仙女祝福下沉睡百年的童话。",
     plot: [
       "序幕:奥罗拉公主出生,六位仙女送来祝福,女巫卡拉博斯却诅咒她将在 16 岁时被纺锤刺到沉睡。",
@@ -345,7 +345,7 @@ window.SHOW_DB = {
     composer: "阿道夫·亚当(Adolphe Adam)",
     choreographer: "Jean Coralli + Jules Perrot · 1841 年首演 · 佩季帕 1884 年俄版改编",
     premiere: "1841 年巴黎歌剧院首演 · 俄罗斯版本由佩季帕 1884 年定本",
-    img: "mariinsky",
+    img: "giselle",
     lead: "浪漫主义芭蕾代表作,村姑吉赛尔得知爱人欺骗后心碎而死,化身鬼魂仍守护他。",
     plot: [
       "第一幕:村姑吉赛尔爱上贵族阿尔布雷希特(谎称自己也是村民),发现真相后崩溃发疯而死。",
@@ -376,7 +376,7 @@ window.SHOW_DB = {
     composer: "Ludwig Minkus",
     choreographer: "马里乌斯·佩季帕",
     premiere: "1869 年莫斯科大剧院首演",
-    img: "bolshoi",
+    img: "don-quixote",
     lead: "改编自塞万提斯小说,西班牙风情浓郁的轻喜剧芭蕾,炫技段落特别多。",
     plot: [
       "第一幕:理发师巴西利奥与酒店老板女儿基特利相爱,父亲却想把女儿嫁给富人。",
@@ -407,7 +407,7 @@ window.SHOW_DB = {
     title: "鲍里斯·戈杜诺夫 · Борис Годунов",
     composer: "莫杰斯特·穆索尔斯基(Modest Mussorgsky)",
     premiere: "1874 年圣彼得堡马林斯基剧院首演",
-    img: "bolshoi",
+    img: "boris-godunov",
     lead: "俄罗斯民族歌剧的奠基之作,17 世纪沙皇鲍里斯篡位后,在恐惧与悔恨中走向毁灭。",
     plot: [
       "序幕:鲍里斯在莫斯科被加冕为沙皇,但人们传言他谋杀了真正的王位继承人小皇子。",
@@ -440,7 +440,7 @@ window.SHOW_DB = {
     title: "黑桃皇后 · Пиковая дама",
     composer: "彼得·伊里奇·柴可夫斯基",
     premiere: "1890 年圣彼得堡马林斯基剧院首演",
-    img: "mariinsky",
+    img: "queen-of-spades",
     lead: "改编自普希金小说,军官赫尔曼为得知“必胜三张牌”的秘密,陷入赌博与疯狂。",
     plot: [
       "第一幕:军官赫尔曼爱上贵族小姐丽莎,却得知她祖母伯爵夫人持有“必胜三张牌”的秘密。",
