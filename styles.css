@@ -221,6 +221,22 @@ main {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  color: inherit;
+}
+
+a.rec-card,
+a.rec-card:visited,
+a.rec-card:hover,
+a.rec-card:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.rec-card .rec-title,
+a.rec-card .rec-sub,
+a.rec-card .rec-desc {
+  text-decoration: none;
 }
 
 .rec-cover {
