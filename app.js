@@ -5,13 +5,13 @@
  * 3. 集中维护静态资源版本号 ASSET_VER,避免散落手改。
  */
 (() => {
-  const ASSET_VER = "8";
+  const ASSET_VER = "10";
   const v = (s) => `${s}?v=${ASSET_VER}`;
 
   const TOPBAR_HTML = `
     <header class="top-bar">
       <div class="brand">
-        <img class="brand-avatar" src="${v("assets/opt/派大欣-192.webp")}" alt="派大欣" width="44" height="44" loading="eager" />
+        <img class="brand-avatar" src="${v("assets/opt/logo-192.webp")}" alt="派大欣环游记" width="44" height="44" loading="eager" />
       </div>
       <div class="top-actions">
         <a class="pill" href="index.html">首页</a>
