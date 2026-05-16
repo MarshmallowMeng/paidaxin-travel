@@ -6,14 +6,21 @@
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣环游记 · 本地推荐</title>
     <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
-    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=11" />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=12" />
+    <link rel="stylesheet" href="styles.css?v=12" />
+    <style>
+      .show-group-title { font-size: 14px; color: var(--muted); margin: 14px 0 8px; padding: 0 2px; font-weight: 500; }
+    </style>
   </head>
   <body data-active="local">
     <div class="app">
       <div data-include="topbar"></div>
 
       <nav class="features" aria-label="快捷入口">
+        <a class="feature-item" href="#show">
+          <span class="feature-emoji" aria-hidden="true">🎭</span>
+          <span class="feature-label">演出</span>
+        </a>
         <a class="feature-item" href="#food">
           <span class="feature-emoji" aria-hidden="true">🍜</span>
           <span class="feature-label">美食</span>
@@ -26,10 +33,6 @@
           <span class="feature-emoji" aria-hidden="true">🛍️</span>
           <span class="feature-label">购物</span>
         </a>
-        <a class="feature-item" href="#show">
-          <span class="feature-emoji" aria-hidden="true">🎭</span>
-          <span class="feature-label">演出</span>
-        </a>
       </nav>
 
       <main>
@@ -38,6 +41,30 @@
           <strong>下单前请在 Yandex Maps 或商家官网核实</strong>。
         </p>
 
+        <!-- ========== 演出(置顶) ========== -->
+        <section id="show" class="section" aria-labelledby="show-title">
+          <div class="section-head">
+            <h2 id="show-title" class="section-title">演出</h2>
+            <a class="section-more" href="tickets.html">代查 ›</a>
+          </div>
+
+          <p class="notice">
+            俄罗斯是芭蕾与歌剧的故乡。下面分两部分:<strong>剧院 / 马戏</strong> 介绍演出场地;
+            <strong>经典剧目</strong> 介绍剧情与看点。点任意卡片进入详情,可了解历史、特色、观看事项。
+          </p>
+
+          <h3 class="show-group-title">🏛️ 剧院 · 马戏</h3>
+          <div class="news-list" aria-label="剧院列表" id="venue-list">
+            <!-- 由 SHOW_DB 渲染 -->
+          </div>
+
+          <h3 class="show-group-title">🩰 经典芭蕾 · 歌剧</h3>
+          <div class="news-list" aria-label="剧目列表" id="work-list">
+            <!-- 由 SHOW_DB 渲染 -->
+          </div>
+        </section>
+
+        <!-- ========== 美食 ========== -->
         <section id="food" class="section" aria-labelledby="food-title">
           <div class="section-head">
             <h2 id="food-title" class="section-title">美食</h2>
@@ -45,7 +72,7 @@
 
           <div class="news-list" aria-label="美食推荐">
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=11" alt="俄式正餐" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=12" alt="俄式正餐" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">必尝菜单 · 入门 8 道</h3>
                 <p class="news-summary">
@@ -58,7 +85,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=11" alt="食堂" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=12" alt="食堂" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">Му-Му(Му-Му连锁食堂)</h3>
                 <p class="news-summary">
@@ -75,7 +102,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic4-thumb.webp?v=11" alt="白兔餐厅" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic4-thumb.webp?v=12" alt="白兔餐厅" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">白兔餐厅 · White Rabbit</h3>
                 <p class="news-summary">
@@ -91,7 +118,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=11" alt="杜兰朵" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=12" alt="杜兰朵" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">杜兰朵(Турандот)</h3>
                 <p class="news-summary">
@@ -107,7 +134,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=11" alt="格鲁吉亚菜" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=12" alt="格鲁吉亚菜" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">格鲁吉亚菜 · Хачапури / Хинкали</h3>
                 <p class="news-summary">
@@ -123,7 +150,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=11" alt="圣彼得堡海鲜" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=12" alt="圣彼得堡海鲜" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">Tsar(Царь) · 圣彼得堡海鲜俄餐</h3>
                 <p class="news-summary">
@@ -139,6 +166,7 @@
           </div>
         </section>
 
+        <!-- ========== 住宿 ========== -->
         <section id="stay" class="section" aria-labelledby="stay-title">
           <div class="section-head">
             <h2 id="stay-title" class="section-title">住宿</h2>
@@ -163,7 +191,7 @@
 
           <div class="news-list" aria-label="住宿推荐">
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=11" alt="Hotel National" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=12" alt="Hotel National" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">Hotel National(莫斯科)</h3>
                 <p class="news-summary">
@@ -178,7 +206,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=11" alt="AZIMUT 连锁" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=12" alt="AZIMUT 连锁" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">AZIMUT 连锁(俄罗斯本土三星)</h3>
                 <p class="news-summary">
@@ -194,7 +222,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=11" alt="Astoria" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=12" alt="Astoria" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">Hotel Astoria(圣彼得堡)</h3>
                 <p class="news-summary">
@@ -210,6 +238,7 @@
           </div>
         </section>
 
+        <!-- ========== 购物 ========== -->
         <section id="shop" class="section" aria-labelledby="shop-title">
           <div class="section-head">
             <h2 id="shop-title" class="section-title">购物</h2>
@@ -217,7 +246,7 @@
 
           <div class="news-list" aria-label="购物推荐">
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=11" alt="GUM" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=12" alt="GUM" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">GUM 国立百货 · Гум</h3>
                 <p class="news-summary">
@@ -232,7 +261,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic4-thumb.webp?v=11" alt="伊兹梅洛沃" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic4-thumb.webp?v=12" alt="伊兹梅洛沃" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">伊兹梅洛沃 · Измайловский кремль</h3>
                 <p class="news-summary">
@@ -248,7 +277,7 @@
             </div>
 
             <div class="news-item" role="group">
-              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=11" alt="必买清单" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=12" alt="必买清单" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">伴手礼必买清单</h3>
                 <p class="news-summary">
@@ -261,81 +290,53 @@
             </div>
           </div>
         </section>
-
-        <section id="show" class="section" aria-labelledby="show-title">
-          <div class="section-head">
-            <h2 id="show-title" class="section-title">演出</h2>
-            <a class="section-more" href="tickets.html">代查 ›</a>
-          </div>
-
-          <div class="news-list" aria-label="演出推荐">
-            <a class="news-item" href="tickets.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic4-thumb.webp?v=11" alt="大剧院" width="96" height="96" loading="lazy" />
-              <div class="news-text">
-                <h3 class="news-title">莫斯科大剧院 · Большой театр</h3>
-                <p class="news-summary">
-                  全球顶级芭蕾 / 歌剧殿堂。主舞台《天鹅湖》《胡桃夹子》《波希米亚人》是常驻。
-                  官网 bolshoi.ru 提前 3 个月开票,池座中后排 ₽4000–10000,顶级 VIP ₽30000+。
-                  抢不到票时也可以代购代查。
-                </p>
-                <div class="tag-row">
-                  <span class="tag">莫斯科</span>
-                  <span class="tag">官网开票</span>
-                  <span class="tag">需提前</span>
-                </div>
-              </div>
-            </a>
-
-            <a class="news-item" href="tickets.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic2-thumb.webp?v=11" alt="马林斯基" width="96" height="96" loading="lazy" />
-              <div class="news-text">
-                <h3 class="news-title">马林斯基剧院 · Мариинский театр</h3>
-                <p class="news-summary">
-                  圣彼得堡灵魂演出场所,与大剧院齐名。包含 历史 Mariinsky I 老剧场、
-                  现代 Mariinsky II、音乐厅 三处舞台。官网 mariinsky.ru,池座 ₽3500 起。
-                </p>
-                <div class="tag-row">
-                  <span class="tag">圣彼得堡</span>
-                  <span class="tag">三个剧场</span>
-                </div>
-              </div>
-            </a>
-
-            <a class="news-item" href="tickets.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic3-thumb.webp?v=11" alt="莫斯科大马戏" width="96" height="96" loading="lazy" />
-              <div class="news-text">
-                <h3 class="news-title">莫斯科尼库林大马戏 · Цирк Никулина</h3>
-                <p class="news-summary">
-                  特维尔大街的国民马戏团,带小孩或没看过马戏的成年人都不会失望。
-                  Tsvetnoy 大街地铁站旁,场次多,票价 ₽1500–4000。
-                </p>
-                <div class="tag-row">
-                  <span class="tag">莫斯科</span>
-                  <span class="tag">亲子友好</span>
-                  <span class="tag">票价友好</span>
-                </div>
-              </div>
-            </a>
-
-            <a class="news-item" href="tickets.html">
-              <img class="news-thumb" src="assets/opt/pdx_pic1-thumb.webp?v=11" alt="叶利谢耶夫" width="96" height="96" loading="lazy" />
-              <div class="news-text">
-                <h3 class="news-title">如果你只看一场:推荐《天鹅湖》</h3>
-                <p class="news-summary">
-                  最受游客欢迎、最有"打卡价值"的剧目。建议<strong>大剧院主舞台</strong>或
-                  <strong>马林斯基 II</strong> 的演出,而不是郊区的廉价旅游版。
-                  座位优先选池座 5–10 排正中。
-                </p>
-                <div class="tag-row"><span class="tag">入门首选</span></div>
-              </div>
-            </a>
-          </div>
-        </section>
       </main>
 
       <div data-include="bottomnav"></div>
     </div>
 
-    <script src="app.js?v=11"></script>
+    <script src="show-data.js?v=12"></script>
+    <script src="app.js?v=12"></script>
+    <script>
+      // —— 渲染演出区 SHOW_DB ——
+      (() => {
+        const db = window.SHOW_DB || {};
+        const venueList = document.getElementById("venue-list");
+        const workList = document.getElementById("work-list");
+
+        // 城市排序:莫斯科 → 圣彼得堡 → 海参崴
+        const cityOrder = { moscow: 0, spb: 1, vladivostok: 2 };
+
+        const venues = [];
+        const works = [];
+        Object.entries(db).forEach(([id, s]) => {
+          if (s.type === "venue") venues.push([id, s]);
+          else works.push([id, s]);
+        });
+        venues.sort((a, b) => (cityOrder[a[1].city] ?? 99) - (cityOrder[b[1].city] ?? 99));
+        // 剧目按类型(芭蕾在前)+ 标题序
+        works.sort((a, b) => {
+          if (a[1].type !== b[1].type) return a[1].type === "ballet" ? -1 : 1;
+          return 0;
+        });
+
+        const renderCard = ([id, s]) => {
+          const tags = (s.tags || []).slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("");
+          return `
+            <a class="news-item" href="show.html?id=${id}">
+              <img class="news-thumb" src="assets/opt/spot-${s.img}-thumb.webp?v=12" alt="${s.title}" width="96" height="96" loading="lazy" />
+              <div class="news-text">
+                <h3 class="news-title">${s.title}</h3>
+                <p class="news-summary news-summary--clamp">${s.lead}</p>
+                <div class="tag-row">${tags}</div>
+              </div>
+            </a>
+          `;
+        };
+
+        venueList.innerHTML = venues.map(renderCard).join("");
+        workList.innerHTML = works.map(renderCard).join("");
+      })();
+    </script>
   </body>
 </html>

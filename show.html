@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f8" />
+    <title>派大欣环游记 · 演出详情</title>
+    <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=12" />
+    <link rel="stylesheet" href="styles.css?v=12" />
+    <style>
+      .show-hero { margin: 0 -16px 12px; }
+      .show-hero img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+      .show-titlewrap { padding: 14px 0 4px; }
+      .show-name { margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+      .show-ru { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+      .show-lead { font-size: 14px; line-height: 1.6; margin: 0 0 14px; color: var(--text); }
+      .show-credits { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; font-size: 13px; line-height: 1.65; color: var(--text); margin: 0 0 14px; }
+      .show-credits div { padding: 2px 0; }
+      .show-credits .label { color: var(--muted); display: inline-block; min-width: 64px; }
+      .show-meta-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 16px; margin-bottom: 14px; }
+      .show-meta-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+      .show-meta-row:last-child { border-bottom: none; }
+      .show-meta-row dt { width: 80px; flex-shrink: 0; color: var(--muted); font-size: 13px; margin: 0; }
+      .show-meta-row dd { flex: 1; min-width: 0; margin: 0; color: var(--text); line-height: 1.55; }
+      .prose-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px 14px 32px; margin: 0 0 14px; font-size: 14px; line-height: 1.7; }
+      .prose-list li { margin: 4px 0; }
+      .related-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; text-decoration: none; color: inherit; }
+      .related-card:active { background: #fafafa; }
+      .related-card-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+      .related-card-arrow { color: #c0c0c4; font-size: 18px; flex-shrink: 0; margin-left: 12px; }
+      .empty { padding: 80px 16px; text-align: center; color: var(--muted); font-size: 14px; }
+      .empty .empty-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+      .back-row { padding: 8px 0 4px; }
+      .back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); text-decoration: none; }
+      .back-link:active { color: var(--text); }
+      .type-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; background: #eef3fa; color: #1f5fa8; margin-right: 6px; vertical-align: 2px; }
+      .type-badge.ballet { background: #fdf2f8; color: #b8336a; }
+      .type-badge.opera { background: #f5efe6; color: #8a6a2e; }
+    </style>
+  </head>
+  <body data-active="local">
+    <div class="app">
+      <div data-include="topbar"></div>
+
+      <main>
+        <div class="back-row">
+          <a class="back-link" href="javascript:history.back()">‹ 返回</a>
+        </div>
+        <div id="show-root"></div>
+      </main>
+
+      <div data-include="bottomnav"></div>
+    </div>
+
+    <script src="show-data.js?v=12"></script>
+    <script src="app.js?v=12"></script>
+    <script>
+      (() => {
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        const root = document.getElementById("show-root");
+        const show = id && window.SHOW_DB ? window.SHOW_DB[id] : null;
+
+        if (!show) {
+          root.innerHTML = `
+            <div class="empty">
+              <span class="empty-emoji">🎭</span>
+              没有找到这个演出条目。<br />
+              <a class="back-link" style="margin-top:14px;display:inline-block" href="local.html#show">‹ 回到演出列表</a>
+            </div>
+          `;
+          return;
+        }
+
+        document.title = `派大欣环游记 · ${show.title}`;
+
+        const typeLabel = { venue: "剧院", ballet: "芭蕾", opera: "歌剧" };
+        const typeBadge = `<span class="type-badge ${show.type}">${typeLabel[show.type] || ""}</span>`;
+
+        // —— 演职 / 首演信息(只对剧目类型显示)——
+        let creditsHtml = "";
+        if (show.type === "ballet" || show.type === "opera") {
+          const rows = [];
+          if (show.composer) rows.push(`<div><span class="label">作曲</span>${show.composer}</div>`);
+          if (show.choreographer) rows.push(`<div><span class="label">编舞</span>${show.choreographer}</div>`);
+          if (show.premiere) rows.push(`<div><span class="label">首演</span>${show.premiere}</div>`);
+          if (rows.length) creditsHtml = `<div class="show-credits">${rows.join("")}</div>`;
+        }
+
+        // —— 历史背景(剧院)——
+        let historyHtml = "";
+        if (show.history && show.history.length) {
+          historyHtml = `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">历史背景</h2>
+            </div>
+            <ul class="prose-list">${show.history.map(h => `<li>${h}</li>`).join("")}</ul>
+          `;
+        }
+
+        // —— 剧情(剧目)——
+        let plotHtml = "";
+        if (show.plot && show.plot.length) {
+          plotHtml = `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">剧情简介</h2>
+            </div>
+            <ul class="prose-list">${show.plot.map(p => `<li>${p}</li>`).join("")}</ul>
+          `;
+        }
+
+        // —— 看点 ——
+        let highlightsHtml = "";
+        if (show.highlights && show.highlights.length) {
+          highlightsHtml = `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">看点 / 特色</h2>
+            </div>
+            <ul class="prose-list">${show.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
+          `;
+        }
+
+        // —— 演出信息表 ——
+        const metaHtml = (show.meta || []).map(([k, v]) => `
+          <div class="show-meta-row">
+            <dt>${k}</dt>
+            <dd>${v}</dd>
+          </div>
+        `).join("");
+
+        // —— 观看小贴士 ——
+        const tipsHtml = (show.tips || []).map(t => `<li>${t}</li>`).join("");
+
+        // —— 标签 ——
+        const tagsHtml = (show.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+
+        // —— 相关链接:剧院 → 相关剧目;剧目 → 上演剧院 ——
+        let relatedHtml = "";
+        const relatedIds = show.type === "venue" ? (show.related || []) : (show.venues || []);
+        const relatedTitle = show.type === "venue" ? "在这里上演的经典剧目" : "在哪些剧院可以看到";
+        if (relatedIds.length && window.SHOW_DB) {
+          const cards = relatedIds.map(rid => {
+            const item = window.SHOW_DB[rid];
+            if (!item) return "";
+            const subType = typeLabel[item.type] || "";
+            const sub = item.type === "venue"
+              ? (item.tags && item.tags[0] ? item.tags[0] : "")
+              : (item.composer ? item.composer.split("(")[0] : "");
+            return `
+              <a class="related-card" href="show.html?id=${rid}">
+                <div>
+                  <div style="font-weight:600;font-size:14px">${item.title}</div>
+                  <div class="related-card-meta">${subType}${sub ? " · " + sub : ""}</div>
+                </div>
+                <span class="related-card-arrow">›</span>
+              </a>
+            `;
+          }).join("");
+          if (cards) {
+            relatedHtml = `
+              <div class="section-head" style="margin-bottom:8px">
+                <h2 class="section-title">${relatedTitle}</h2>
+              </div>
+              ${cards}
+            `;
+          }
+        }
+
+        root.innerHTML = `
+          <div class="show-hero">
+            <img src="assets/opt/spot-${show.img}-480.webp?v=12" alt="${show.title}" loading="eager" />
+          </div>
+          <div class="show-titlewrap">
+            <h1 class="show-name">${typeBadge}${show.title}</h1>
+            ${show.ru ? `<p class="show-ru">${show.ru}</p>` : ""}
+          </div>
+          ${tagsHtml ? `<div class="tag-row" style="margin:0 0 12px">${tagsHtml}</div>` : ""}
+          <p class="show-lead">${show.lead}</p>
+
+          ${creditsHtml}
+          ${plotHtml}
+          ${historyHtml}
+          ${highlightsHtml}
+
+          ${metaHtml ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">演出信息</h2>
+            </div>
+            <div class="show-meta-card"><dl style="margin:0">${metaHtml}</dl></div>
+          ` : ""}
+
+          ${tipsHtml ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">观看小贴士</h2>
+            </div>
+            <ul class="prose-list">${tipsHtml}</ul>
+          ` : ""}
+
+          ${relatedHtml}
+        `;
+      })();
+    </script>
+  </body>
+</html>
