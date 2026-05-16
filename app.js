@@ -1,4 +1,4 @@
-/* 派大欣 · 双城漫步 — 公共脚本
+/* 派大欣环游记 — 公共脚本
  * 1. 用 JS 注入顶栏 (data-include="topbar") 与底部 Tab (data-include="bottomnav")
  *    所有页面只写一行占位符即可,后续改一处全站同步。
  * 2. 根据 <body data-active="..."> 给底部 Tab 高亮当前页。
