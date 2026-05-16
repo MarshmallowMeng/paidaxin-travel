@@ -115,6 +115,10 @@ body {
   border-bottom: 1px solid var(--line);
 }
 
+.features.features--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .feature-item {
   display: flex;
   flex-direction: column;
