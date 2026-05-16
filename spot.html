@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f8" />
+    <title>派大欣环游记 · 景点详情</title>
+    <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=11" />
+    <link rel="stylesheet" href="styles.css?v=11" />
+    <style>
+      .spot-hero { margin: 0 -16px 12px; }
+      .spot-hero img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+      .spot-titlewrap { padding: 14px 0 4px; }
+      .spot-name { margin: 0 0 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+      .spot-ru { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+      .spot-lead { font-size: 14px; line-height: 1.6; margin: 0 0 14px; color: var(--text); }
+      .spot-meta-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 16px; margin-bottom: 14px; }
+      .spot-meta-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+      .spot-meta-row:last-child { border-bottom: none; }
+      .spot-meta-row dt { width: 80px; flex-shrink: 0; color: var(--muted); font-size: 13px; margin: 0; }
+      .spot-meta-row dd { flex: 1; min-width: 0; margin: 0; color: var(--text); line-height: 1.55; }
+      .tip-list { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px 14px 32px; margin: 0 0 14px; font-size: 14px; line-height: 1.65; }
+      .tip-list li { margin: 4px 0; }
+      .route-link-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; text-decoration: none; color: inherit; }
+      .route-link-card:active { background: #fafafa; }
+      .route-link-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+      .route-link-arrow { color: #c0c0c4; font-size: 18px; flex-shrink: 0; margin-left: 12px; }
+      .empty { padding: 80px 16px; text-align: center; color: var(--muted); font-size: 14px; }
+      .empty .empty-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+      .back-row { padding: 8px 0 4px; }
+      .back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); text-decoration: none; }
+      .back-link:active { color: var(--text); }
+    </style>
+  </head>
+  <body data-active="discover">
+    <div class="app">
+      <div data-include="topbar"></div>
+
+      <main>
+        <div class="back-row">
+          <a class="back-link" href="javascript:history.back()">‹ 返回</a>
+        </div>
+        <div id="spot-root"></div>
+      </main>
+
+      <div data-include="bottomnav"></div>
+    </div>
+
+    <script src="spots-data.js?v=11"></script>
+    <script src="app.js?v=11"></script>
+    <script>
+      (() => {
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        const root = document.getElementById("spot-root");
+        const spot = id && window.SPOT_DB ? window.SPOT_DB[id] : null;
+
+        if (!spot) {
+          root.innerHTML = `
+            <div class="empty">
+              <span class="empty-emoji">📍</span>
+              没有找到这个景点。<br />
+              <a class="back-link" style="margin-top:14px;display:inline-block" href="spots.html">‹ 回到景点列表</a>
+            </div>
+          `;
+          return;
+        }
+
+        document.title = `派大欣环游记 · ${spot.title}`;
+
+        const metaHtml = (spot.meta || []).map(([k, v]) => `
+          <div class="spot-meta-row">
+            <dt>${k}</dt>
+            <dd>${v}</dd>
+          </div>
+        `).join("");
+
+        const tipsHtml = (spot.tips || []).map(t => `<li>${t}</li>`).join("");
+
+        const tagsHtml = (spot.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+
+        const routeLinks = (spot.inRoutes || []).map(r => {
+          const route = window.ROUTE_DB && window.ROUTE_DB[r];
+          if (!route) return "";
+          return `
+            <a class="route-link-card" href="routes.html#${r}">
+              <div>
+                <div style="font-weight:600;font-size:14px">${route.name}</div>
+                <div class="route-link-meta">${route.cities} · ${route.season}</div>
+              </div>
+              <span class="route-link-arrow">›</span>
+            </a>
+          `;
+        }).join("");
+
+        root.innerHTML = `
+          <div class="spot-hero">
+            <img src="assets/opt/spot-${spot.img}-480.webp?v=11" alt="${spot.title}" loading="eager" />
+          </div>
+          <div class="spot-titlewrap">
+            <h1 class="spot-name">${spot.title}</h1>
+            ${spot.ru ? `<p class="spot-ru">${spot.ru}</p>` : ""}
+          </div>
+          ${tagsHtml ? `<div class="tag-row" style="margin:0 0 12px">${tagsHtml}</div>` : ""}
+          <p class="spot-lead">${spot.lead}</p>
+
+          ${metaHtml ? `<div class="spot-meta-card"><dl style="margin:0">${metaHtml}</dl></div>` : ""}
+
+          ${tipsHtml ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">小贴士</h2>
+            </div>
+            <ul class="tip-list">${tipsHtml}</ul>
+          ` : ""}
+
+          ${routeLinks ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">出现在以下推荐路线</h2>
+            </div>
+            ${routeLinks}
+          ` : ""}
+        `;
+      })();
+    </script>
+  </body>
+</html>
