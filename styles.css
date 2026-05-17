@@ -284,7 +284,7 @@ a.rec-card .rec-desc {
 
 /* 仅首页需要"短小窗 + 内部滚动"的效果时显式叠加 */
 .news-list--scroll {
-  max-height: 280px;
+  max-height: 420px;
   overflow-y: auto;
   padding-right: 4px;
   scroll-behavior: smooth;
