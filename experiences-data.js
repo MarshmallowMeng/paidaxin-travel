@@ -19,7 +19,7 @@ window.EXP_DB = {
     ru: "Коломенское",
     city: "moscow",
     type: "spot",
-    img: "sparrowhills",
+    img: "kolomenskoye",
     lead: '曾被誉为"世界第八大奇迹"的莫斯科郊外皇家园林,河景 + 森林 + 古老木教堂,休闲散步、拍照超出片。',
     meta: [
       ["门票", "公园免费 · 木宫殿与教堂内部 ₽400 起"],
@@ -38,7 +38,7 @@ window.EXP_DB = {
     ru: "Музей космонавтики",
     city: "moscow",
     type: "spot",
-    img: "metro",
+    img: "space-museum",
     lead: "航天迷必去,苏联是太空探索的先驱,馆内可看宇航服、返回舱、太空舱实物,科普感强。",
     meta: [
       ["门票", "₽450"],
@@ -58,7 +58,7 @@ window.EXP_DB = {
     ru: "Новодевичий монастырь",
     city: "moscow",
     type: "spot",
-    img: "tretyakov",
+    img: "novodevichy",
     lead: '世界文化遗产,修道院风景极美,公墓被称"欧洲最美艺术墓地",适合文艺、历史爱好者。',
     meta: [
       ["门票", "园区免费 · 博物馆 ₽500"],
@@ -77,7 +77,7 @@ window.EXP_DB = {
     ru: "Главный храм Вооружённых сил России",
     city: "moscow",
     type: "spot",
-    img: "kremlin",
+    img: "armed-forces-cathedral",
     lead: "公认俄罗斯最美教堂,军绿+金顶外观庄严,夜灯亮起后更震撼。",
     meta: [
       ["门票", "免费"],
@@ -96,7 +96,7 @@ window.EXP_DB = {
     ru: "Золотое кольцо",
     city: "moscow",
     type: "spot",
-    img: "anthill",
+    img: "golden-ring",
     lead: "谢尔盖耶夫镇 + 弗拉基米尔 + 苏兹达尔三镇组合,东正教精神中心、12 世纪大教堂、木质建筑群。",
     meta: [
       ["一日游", "谢尔盖耶夫镇当日往返,适合时间紧的客人"],
@@ -116,7 +116,7 @@ window.EXP_DB = {
     ru: "Российская государственная библиотека",
     city: "moscow",
     type: "spot",
-    img: "tretyakov",
+    img: "state-library",
     lead: "百年古典建筑,内部华丽如宫殿,适合喜欢安静人文的客人。",
     meta: [
       ["门票", "需办临时阅览证 ₽150"],
@@ -137,7 +137,7 @@ window.EXP_DB = {
     ru: "Прогулка по Москве-реке",
     city: "moscow",
     type: "experience",
-    img: "sparrowhills",
+    img: "moscow-river-cruise",
     lead: "沿河看克里姆林宫、基督救世主大教堂、卢日尼基体育场,夜景尤其出片。",
     meta: [
       ["票价", "₽1200–2500 / 人"],
@@ -156,7 +156,7 @@ window.EXP_DB = {
     ru: "Русская баня",
     city: "moscow",
     type: "experience",
-    img: "metro",
+    img: "banya",
     lead: "本地人最爱的放松方式:白桦枝抽打 + 冰水降温 + 茶点休息,出汗如出片。",
     meta: [
       ["参考价", "公共池 ₽2000 / 人 · 私人包间 ₽6000 起 / 小时"],
@@ -175,7 +175,7 @@ window.EXP_DB = {
     ru: "Конная прогулка в подмосковном лесу",
     city: "moscow",
     type: "experience",
-    img: "anthill",
+    img: "forest-riding",
     lead: "在莫斯科郊外的桦树林里骑马慢步,夏季草地、冬季雪景,适合所有水平。",
     meta: [
       ["参考价", "新手体验 ₽3500 / 小时(含教练全程陪同)"],
@@ -193,7 +193,7 @@ window.EXP_DB = {
     ru: "Хоккей и фигурное катание",
     city: "moscow",
     type: "experience",
-    img: "bolshoi",
+    img: "moscow-sports",
     lead: "莫斯科 CSKA / 迪纳摩主场冰球氛围爆棚,花滑大奖赛偶尔在此举办。",
     meta: [
       ["票价", "冰球 ₽1500 起 · 花滑大型赛事 ₽3000 起"],
@@ -213,7 +213,7 @@ window.EXP_DB = {
     ru: "Павловский парк",
     city: "spb",
     type: "spot",
-    img: "catherine",
+    img: "pavlovsk",
     lead: "超大森林皇家公园,湖泊、小桥、森林步道,比夏宫人少、更自然。",
     meta: [
       ["门票", "公园 ₽150 · 宫殿另购 ₽700"],
@@ -233,7 +233,7 @@ window.EXP_DB = {
     ru: "Кронштадт",
     city: "spb",
     type: "spot",
-    img: "fortress",
+    img: "kronstadt",
     lead: "海边海军小镇,灯塔、海军教堂、堤坝海景,非常宁静小众。",
     meta: [
       ["门票", "进城免费 · 海军大教堂 ₽300 起"],
@@ -251,7 +251,7 @@ window.EXP_DB = {
     ru: "Зоологический музей",
     city: "spb",
     type: "spot",
-    img: "hermitage",
+    img: "zoological-museum",
     lead: "世界顶级动物博物馆,有完整猛犸象化石,亲子 / 科普首选。",
     meta: [
       ["门票", "₽350"],
@@ -271,7 +271,7 @@ window.EXP_DB = {
     ru: "Выборг",
     city: "spb",
     type: "spot",
-    img: "mariinsky",
+    img: "vyborg",
     lead: "中世纪城堡 + 芬兰湾风光,北欧风拉满,年轻人超爱。",
     meta: [
       ["往返车程", "燕子号快车 1h12m / 单程"],
@@ -292,7 +292,7 @@ window.EXP_DB = {
     ru: "Прогулка по Неве и развод мостов",
     city: "spb",
     type: "experience",
-    img: "fortress",
+    img: "neva-cruise",
     lead: "夏季深夜大桥升起,游船看夜景,圣彼得堡独一份的体验。",
     meta: [
       ["票价", "₽2000–4500 / 人"],
@@ -311,7 +311,7 @@ window.EXP_DB = {
     ru: "Кафе в Доме Книги",
     city: "spb",
     type: "experience",
-    img: "kazan",
+    img: "bookstore-cafe",
     lead: "涅瓦大街 Дом Книги 二楼咖啡座正对喀山大教堂,百年新艺术风建筑里的下午茶。",
     meta: [
       ["人均", "₽800–1500"],
@@ -330,7 +330,7 @@ window.EXP_DB = {
     ru: "Спортивные мероприятия",
     city: "spb",
     type: "experience",
-    img: "mariinsky",
+    img: "spb-sports",
     lead: "SKA 冰球俱乐部、泽尼特足球俱乐部主场氛围浓烈,赛季是城市另一种节庆。",
     meta: [
       ["票价", "冰球 ₽1500 起 · 足球 ₽1000 起"],
@@ -350,7 +350,7 @@ window.EXP_DB = {
     ru: "Новый парк хаски",
     city: "murmansk",
     type: "spot",
-    img: "husky",
+    img: "new-husky-park",
     lead: "距摩尔曼斯克市区较近,且较难预约,建议行程较紧的游客优先考虑。",
     meta: [
       ["票价", "套餐 ₽3500 起(含哈士奇互动 + 雪橇)"],
@@ -368,7 +368,7 @@ window.EXP_DB = {
     ru: "Старый парк хаски",
     city: "murmansk",
     type: "spot",
-    img: "reindeer",
+    img: "old-husky-park",
     lead: "距市区较远,很难预约,但景色更美,是北极圈内最具经典特色的公园之一。",
     meta: [
       ["票价", "套餐 ₽4500 起"],
@@ -386,7 +386,7 @@ window.EXP_DB = {
     ru: "Парк северного сияния",
     city: "murmansk",
     type: "spot",
-    img: "aurora",
+    img: "aurora-park",
     lead: "距市区较近,好预约,公园内部分区域需要单独购票。",
     meta: [
       ["门票", "园区 ₽800 · 哈士奇 / 驯鹿区另购"],
@@ -407,7 +407,7 @@ window.EXP_DB = {
     ru: "Дрейф в Баренцевом море",
     city: "murmansk",
     type: "experience",
-    img: "teriberka",
+    img: "arctic-float",
     lead: "穿保暖浮力服漂浮在北冰洋海面,超酷的独家体验。",
     meta: [
       ["参考价", "₽8000–12000 / 人(含装备 + 教练)"],
@@ -426,7 +426,7 @@ window.EXP_DB = {
     ru: "Морская прогулка с китами",
     city: "murmansk",
     type: "experience",
-    img: "kingcrab",
+    img: "whale-watching",
     lead: "从捷里小港出海,在巴伦支海寻找鲸群、海豚和海鸟。",
     meta: [
       ["参考价", "₽9000–13000 / 人"],
@@ -444,7 +444,7 @@ window.EXP_DB = {
     ru: "Гостевой дом в Териберке",
     city: "murmansk",
     type: "experience",
-    img: "teriberka",
+    img: "teriberka-cabin",
     lead: "北极圈内无污染小镇,推门即看极光。",
     meta: [
       ["参考价", "₽3000–6000 / 晚 / 间"],
@@ -462,7 +462,7 @@ window.EXP_DB = {
     ru: "Снегоходы",
     city: "murmansk",
     type: "experience",
-    img: "samivillage",
+    img: "snowmobile",
     lead: "北极圈内的速度与激情,在森林雪原上飞驰。",
     meta: [
       ["参考价", "单人 ₽5000 起 / 小时 · 双人坐 ₽7000"],
@@ -482,7 +482,7 @@ window.EXP_DB = {
     ru: "Приморский океанариум",
     city: "vladivostok",
     type: "spot",
-    img: "vlad-cruise",
+    img: "vlad-aquarium",
     lead: "室内场馆,不怕风吹日晒,可观看海豚表演。适合亲子、雨天备选。",
     meta: [
       ["门票", "₽1000(成人)· ₽500(儿童)"],
@@ -503,7 +503,7 @@ window.EXP_DB = {
     ru: "Тюлени и остров Путятин",
     city: "vladivostok",
     type: "experience",
-    img: "vlad-cruise",
+    img: "vlad-seal-island",
     lead: "快艇 30–40 分钟到海豹栖息地,近距离观察后登无人岛 Путятин,抓海胆 / 扇贝,游三海湾。",
     meta: [
       ["参考价", "₽8000–12000 / 人(整船)"],
@@ -523,7 +523,7 @@ window.EXP_DB = {
     ru: "Дрейф у Токаревского маяка",
     city: "vladivostok",
     type: "experience",
-    img: "lighthouse",
+    img: "vlad-lighthouse-float",
     lead: '电影《七月与安生》取景地,换上"龙虾服",教练陪同踩薄冰碎裂后浮于冰海,无人机跟拍。',
     meta: [
       ["参考价", "₽6000–9000 / 人(含装备 + 教练 + 无人机)"],
