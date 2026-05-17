@@ -5,7 +5,7 @@
  * 3. 集中维护静态资源版本号 ASSET_VER,避免散落手改。
  */
 (() => {
-  const ASSET_VER = "23";
+  const ASSET_VER = "25";
   const v = (s) => `${s}?v=${ASSET_VER}`;
 
   const TOPBAR_HTML = `
