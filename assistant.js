@@ -1,10 +1,12 @@
 /* 派大欣环游记 — AI 助手悬浮窗
- * 右下角机器人按钮,点击弹出对话框,后端为火山引擎 Ark Doubao。
- * ⚠️ API key 直接写在前端会被任何访问者抓走,生产请改为后端代理 + env。
+ * 右下角机器人按钮,点击弹出对话框,后端为 Cloudflare Worker 代理 → 火山引擎 Ark。
+ * key 不再写在前端,放在 Worker 的环境变量里;Worker 同时解决 Ark 的 CORS 问题。
+ *
+ * 部署 Worker 前,这里的 PROXY_ENDPOINT 还是空的,前端会显示一条提示。
+ * 部署完把 https://<your>.workers.dev/chat 填进来即可。
  */
 (() => {
-  const ARK_ENDPOINT = "https://ark.cn-beijing.volces.com/api/v3/chat/completions";
-  const ARK_KEY = "7aab4c02-96e2-4e4c-a075-3c29d09dfa61";
+  const PROXY_ENDPOINT = "https://paidaxin-ai.workers.dev/chat"; // ← 部署 Worker 后改成你的域名
   const MODEL = "doubao-seed-2-0-lite-260215";
   const SYSTEM_PROMPT =
     "你是派大欣环游记的 AI 旅行助手,擅长俄罗斯(莫斯科 / 圣彼得堡 / 摩尔曼斯克 / 海参崴)旅行问题。回答简洁友善,使用简体中文,关键信息带价格 / 时间 / 地址等具体数字时尽量准确,不确定时直接说不确定。";
@@ -151,13 +153,12 @@
     }
   });
 
-  // ---------- 调用 Ark ----------
+  // ---------- 调用代理(代理再去打 Ark) ----------
   async function callArk(messages) {
-    const resp = await fetch(ARK_ENDPOINT, {
+    const resp = await fetch(PROXY_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${ARK_KEY}`,
       },
       body: JSON.stringify({
         model: MODEL,
@@ -168,7 +169,7 @@
       let detail = "";
       try {
         const j = await resp.json();
-        detail = j.error?.message || JSON.stringify(j);
+        detail = j.error?.message || j.error || JSON.stringify(j);
       } catch (_) {
         detail = await resp.text().catch(() => "");
       }
