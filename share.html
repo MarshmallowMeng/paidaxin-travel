@@ -3,16 +3,161 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta http-equiv="refresh" content="0; url=guide.html#share" />
-    <title>派大欣环游记 · 旅友分享(已并入出行指南)</title>
+    <meta name="theme-color" content="#f7f7f8" />
+    <title>派大欣环游记 · 旅友分享</title>
     <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
-    <link rel="canonical" href="guide.html#share" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=23" />
+    <link rel="stylesheet" href="styles.css?v=23" />
+    <style>
+      .share-hero { margin: 0 -16px 12px; }
+      .share-hero img { width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover; }
+      .share-titlewrap { padding: 12px 0 6px; }
+      .share-name { margin: 0 0 8px; font-size: 22px; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; }
+      .share-byline { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+      .share-byline .author { color: var(--text); font-weight: 500; }
+      .share-byline .dot { margin: 0 6px; }
+      .share-summary { background: #fafafa; border-left: 3px solid var(--accent); padding: 12px 14px; font-size: 14px; line-height: 1.7; color: var(--text); margin: 0 0 16px; border-radius: 4px; }
+      .share-meta-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 16px; margin-bottom: 16px; }
+      .share-meta-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+      .share-meta-row:last-child { border-bottom: none; }
+      .share-meta-row dt { width: 92px; flex-shrink: 0; color: var(--muted); font-size: 13px; margin: 0; }
+      .share-meta-row dd { flex: 1; min-width: 0; margin: 0; color: var(--text); line-height: 1.55; }
+      .share-section { margin: 0 0 18px; }
+      .share-section h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; color: var(--text); }
+      .share-section p { margin: 8px 0; font-size: 14px; line-height: 1.75; color: var(--text); }
+      .share-takeaways { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px 14px 32px; margin: 0 0 14px; font-size: 14px; line-height: 1.8; }
+      .share-takeaways li { margin: 4px 0; }
+      .share-warning { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; padding: 12px 14px; border-radius: 6px; font-size: 13px; line-height: 1.65; margin: 0 0 14px; }
+      .share-warning strong { color: #7c2d12; }
+      .empty { padding: 80px 16px; text-align: center; color: var(--muted); font-size: 14px; }
+      .empty .empty-emoji { font-size: 48px; display: block; margin-bottom: 12px; }
+      .back-row { padding: 8px 0 4px; }
+      .back-link { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); text-decoration: none; }
+      .back-link:active { color: var(--text); }
+      .related-card { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; text-decoration: none; color: inherit; }
+      .related-card:active { background: #fafafa; }
+      .related-card-arrow { color: #c0c0c4; font-size: 18px; flex-shrink: 0; margin-left: 12px; }
+    </style>
   </head>
-  <body>
-    <p style="font-family:system-ui;padding:24px;text-align:center;color:#555">
-      旅友分享已并入「出行指南」。
-      若未自动跳转,请点 <a href="guide.html#share">这里</a>。
-    </p>
-    <script>location.replace("guide.html#share");</script>
+  <body data-active="guide">
+    <div class="app">
+      <div data-include="topbar"></div>
+
+      <main>
+        <div class="back-row">
+          <a class="back-link" href="javascript:history.back()">‹ 返回</a>
+        </div>
+        <div id="share-root"></div>
+      </main>
+
+      <div data-include="bottomnav"></div>
+    </div>
+
+    <script src="share-data.js?v=23"></script>
+    <script src="app.js?v=23"></script>
+    <script>
+      (() => {
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        const root = document.getElementById("share-root");
+        const data = id && window.SHARE_DB ? window.SHARE_DB[id] : null;
+
+        if (!data) {
+          root.innerHTML = `
+            <div class="empty">
+              <span class="empty-emoji">📝</span>
+              没有找到这条旅友分享。<br />
+              <a class="back-link" style="margin-top:14px;display:inline-block" href="guide.html#share">‹ 回到分享列表</a>
+            </div>
+          `;
+          return;
+        }
+
+        document.title = `派大欣环游记 · ${data.title}`;
+
+        const tagsHtml = (data.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+
+        const metaHtml = (data.meta || []).map(([k, v]) => `
+          <div class="share-meta-row">
+            <dt>${k}</dt>
+            <dd>${v}</dd>
+          </div>
+        `).join("");
+
+        const sectionsHtml = (data.sections || []).map(s => `
+          <div class="share-section">
+            <h3>${s.title}</h3>
+            ${(s.paras || []).map(p => `<p>${p}</p>`).join("")}
+          </div>
+        `).join("");
+
+        const takeawaysHtml = (data.takeaways || []).length
+          ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">经验小结</h2>
+            </div>
+            <ul class="share-takeaways">${data.takeaways.map(t => `<li>${t}</li>`).join("")}</ul>
+          `
+          : "";
+
+        const warningHtml = data.warning
+          ? `<div class="share-warning"><strong>提醒 · </strong>${data.warning}</div>`
+          : "";
+
+        // 推荐其他分享(随机 2 条)
+        let relatedHtml = "";
+        if (window.SHARE_DB) {
+          const others = Object.entries(window.SHARE_DB).filter(([k]) => k !== id);
+          if (others.length) {
+            const picks = others.slice(0, 2);
+            const cards = picks.map(([rid, item]) => `
+              <a class="related-card" href="share.html?id=${rid}">
+                <div>
+                  <div style="font-weight:600;font-size:14px">${item.title}</div>
+                  <div style="font-size:12px;color:var(--muted);margin-top:2px">${item.author || ""}</div>
+                </div>
+                <span class="related-card-arrow">›</span>
+              </a>
+            `).join("");
+            relatedHtml = `
+              <div class="section-head" style="margin:18px 0 8px">
+                <h2 class="section-title">还可以看看</h2>
+              </div>
+              ${cards}
+            `;
+          }
+        }
+
+        root.innerHTML = `
+          <div class="share-hero">
+            <img src="assets/opt/spot-share-${data.img}-480.webp?v=23" alt="${data.title}" loading="eager" />
+          </div>
+          <div class="share-titlewrap">
+            <h1 class="share-name">${data.title}</h1>
+            <p class="share-byline">
+              ${data.author ? `<span class="author">${data.author}</span>` : ""}
+              ${data.author && data.date ? `<span class="dot">·</span>` : ""}
+              ${data.date ? `<span>${data.date}</span>` : ""}
+            </p>
+          </div>
+          ${tagsHtml ? `<div class="tag-row" style="margin:0 0 12px">${tagsHtml}</div>` : ""}
+
+          ${data.summary ? `<div class="share-summary">${data.summary}</div>` : ""}
+
+          ${metaHtml ? `
+            <div class="section-head" style="margin-bottom:8px">
+              <h2 class="section-title">基础信息</h2>
+            </div>
+            <div class="share-meta-card"><dl style="margin:0">${metaHtml}</dl></div>
+          ` : ""}
+
+          ${sectionsHtml}
+
+          ${takeawaysHtml}
+          ${warningHtml}
+          ${relatedHtml}
+        `;
+      })();
+    </script>
   </body>
 </html>
