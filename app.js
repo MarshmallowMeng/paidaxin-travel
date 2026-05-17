@@ -5,7 +5,7 @@
  * 3. 集中维护静态资源版本号 ASSET_VER,避免散落手改。
  */
 (() => {
-  const ASSET_VER = "20";
+  const ASSET_VER = "21";
   const v = (s) => `${s}?v=${ASSET_VER}`;
 
   const TOPBAR_HTML = `
@@ -36,6 +36,10 @@
         <a class="nav-item" href="local.html" data-nav="local">
           <span class="nav-emoji" aria-hidden="true">🍴</span>
           <span>本地推荐</span>
+        </a>
+        <a class="nav-item" href="culture.html" data-nav="culture">
+          <span class="nav-emoji" aria-hidden="true">🪆</span>
+          <span>文化专区</span>
         </a>
         <a class="nav-item" href="guide.html" data-nav="guide">
           <span class="nav-emoji" aria-hidden="true">📖</span>

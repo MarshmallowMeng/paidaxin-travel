@@ -119,6 +119,15 @@ body {
   grid-template-columns: repeat(5, 1fr);
 }
 
+.features.features--cols-5 .feature-label {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.features.features--cols-5 .feature-emoji {
+  font-size: 24px;
+}
+
 .feature-item {
   display: flex;
   flex-direction: column;
