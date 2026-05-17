@@ -963,6 +963,7 @@ body.ai-modal-open {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  padding: 0 12px calc(12px + var(--safe-b));
 }
 
 .ai-modal[hidden] {
@@ -981,11 +982,11 @@ body.ai-modal-open {
 .ai-panel {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  height: 78vh;
-  max-height: 640px;
+  max-width: 420px;
+  height: 72vh;
+  max-height: 600px;
   background: var(--surface);
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.18);
@@ -996,9 +997,10 @@ body.ai-modal-open {
 @media (min-width: 600px) {
   .ai-modal {
     align-items: center;
+    padding: 12px;
   }
   .ai-panel {
-    border-radius: 16px;
+    max-width: 440px;
     max-height: 720px;
     height: 82vh;
   }
@@ -1162,9 +1164,10 @@ body.ai-modal-open {
   min-height: 38px;
   max-height: 120px;
   padding: 9px 12px;
-  font-size: 14px;
+  /* iOS Safari 在 font-size < 16px 时聚焦会强制放大整页,固定 16px */
+  font-size: 16px;
   font-family: inherit;
-  line-height: 1.45;
+  line-height: 1.4;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: #f7f7f8;
