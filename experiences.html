@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f7f8" />
+    <title>派大欣环游记 · 特色体验</title>
+    <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=18" />
+    <link rel="stylesheet" href="styles.css?v=18" />
+  </head>
+  <body data-active="discover">
+    <div class="app">
+      <div data-include="topbar"></div>
+
+      <main>
+        <section class="section" aria-labelledby="exp-title">
+          <div class="section-head">
+            <h2 id="exp-title" class="section-title">特色体验</h2>
+          </div>
+
+          <p class="notice">
+            <strong>说明:</strong>经典路线之外的「<strong>推荐景点</strong>」与「<strong>特色体验项目</strong>」。
+            可根据兴趣、预算、出行季节自由叠加到行程里。
+            票价 / 开放时间 经常变动,
+            <strong>请以官方与商家页面为准</strong>。
+            点击任意卡片进入<strong>详情页</strong>。
+          </p>
+
+          <div class="chip-row" role="tablist" aria-label="城市筛选">
+            <button class="chip is-active" type="button" data-city="all">全部</button>
+            <button class="chip" type="button" data-city="moscow">莫斯科</button>
+            <button class="chip" type="button" data-city="spb">圣彼得堡</button>
+            <button class="chip" type="button" data-city="murmansk">摩尔曼斯克</button>
+            <button class="chip" type="button" data-city="vladivostok">海参崴</button>
+          </div>
+
+          <div class="chip-row" role="tablist" aria-label="类型筛选" style="margin-top:-4px">
+            <button class="chip is-active" type="button" data-type="all">全部类型</button>
+            <button class="chip" type="button" data-type="spot">推荐景点</button>
+            <button class="chip" type="button" data-type="experience">特色体验</button>
+          </div>
+
+          <div class="news-list" aria-label="特色体验列表" id="exp-list">
+            <!-- 列表由 experiences-data.js 渲染 -->
+          </div>
+        </section>
+      </main>
+
+      <div data-include="bottomnav"></div>
+    </div>
+
+    <script src="experiences-data.js?v=18"></script>
+    <script src="app.js?v=18"></script>
+    <script>
+      (() => {
+        const list = document.getElementById("exp-list");
+        const db = window.EXP_DB || {};
+        // 排序:城市 → 类型(景点先于体验)
+        const cityOrder = { moscow: 0, spb: 1, murmansk: 2, vladivostok: 3 };
+        const typeOrder = { spot: 0, experience: 1 };
+        const typeLabel = { spot: "推荐景点", experience: "特色体验" };
+
+        const items = Object.entries(db).sort((a, b) => {
+          const ca = cityOrder[a[1].city] ?? 99;
+          const cb = cityOrder[b[1].city] ?? 99;
+          if (ca !== cb) return ca - cb;
+          return (typeOrder[a[1].type] ?? 99) - (typeOrder[b[1].type] ?? 99);
+        });
+
+        list.innerHTML = items.map(([id, s]) => {
+          const tags = (s.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+          return `
+            <a class="news-item" href="experience.html?id=${id}" data-city="${s.city}" data-type="${s.type}">
+              <img class="news-thumb" src="assets/opt/spot-${s.img}-thumb.webp?v=18" alt="${s.title}" width="96" height="96" loading="lazy" />
+              <div class="news-text">
+                <h3 class="news-title">${s.title}<span class="tag" style="margin-left:6px">${typeLabel[s.type] || ""}</span></h3>
+                <p class="news-summary news-summary--clamp">${s.lead}</p>
+                <div class="tag-row">${tags}</div>
+              </div>
+            </a>
+          `;
+        }).join("");
+
+        const allItems = list.querySelectorAll("[data-city]");
+        let activeCity = "all";
+        let activeType = "all";
+
+        function applyFilter() {
+          allItems.forEach((it) => {
+            const cityOk = activeCity === "all" || it.dataset.city === activeCity;
+            const typeOk = activeType === "all" || it.dataset.type === activeType;
+            it.style.display = cityOk && typeOk ? "" : "none";
+          });
+        }
+
+        document.querySelectorAll(".chip[data-city]").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            activeCity = chip.dataset.city;
+            document.querySelectorAll(".chip[data-city]").forEach((c) => c.classList.toggle("is-active", c === chip));
+            applyFilter();
+          });
+        });
+
+        document.querySelectorAll(".chip[data-type]").forEach((chip) => {
+          chip.addEventListener("click", () => {
+            activeType = chip.dataset.type;
+            document.querySelectorAll(".chip[data-type]").forEach((c) => c.classList.toggle("is-active", c === chip));
+            applyFilter();
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

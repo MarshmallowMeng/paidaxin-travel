@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#f7f7f8" />
     <title>派大欣环游记 · 景点信息</title>
     <link rel="icon" type="image/x-icon" href="assets/opt/favicon.ico" />
-    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=17" />
-    <link rel="stylesheet" href="styles.css?v=17" />
+    <link rel="apple-touch-icon" href="assets/opt/apple-touch-icon.png?v=18" />
+    <link rel="stylesheet" href="styles.css?v=18" />
   </head>
   <body data-active="discover">
     <div class="app">
@@ -43,8 +43,8 @@
       <div data-include="bottomnav"></div>
     </div>
 
-    <script src="spots-data.js?v=17"></script>
-    <script src="app.js?v=17"></script>
+    <script src="spots-data.js?v=18"></script>
+    <script src="app.js?v=18"></script>
     <script>
       (() => {
         const list = document.getElementById("spot-list");
@@ -61,7 +61,7 @@
           const tags = (s.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
           return `
             <a class="news-item" href="spot.html?id=${id}" data-city="${s.city}">
-              <img class="news-thumb" src="assets/opt/spot-${s.img}-thumb.webp?v=17" alt="${s.title}" width="96" height="96" loading="lazy" />
+              <img class="news-thumb" src="assets/opt/spot-${s.img}-thumb.webp?v=18" alt="${s.title}" width="96" height="96" loading="lazy" />
               <div class="news-text">
                 <h3 class="news-title">${s.title}</h3>
                 <p class="news-summary news-summary--clamp">${s.lead}</p>
