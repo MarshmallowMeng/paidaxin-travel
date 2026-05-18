@@ -909,6 +909,89 @@ a.rec-card .rec-desc {
   }
 }
 
+/* —— PC 端:把"手机条"漂亮地嵌进桌面视口 —— */
+@media (min-width: 768px) {
+  body {
+    background:
+      radial-gradient(1200px 600px at 20% 0%, #ffe8d8 0%, transparent 60%),
+      radial-gradient(1000px 600px at 90% 20%, #e8eeff 0%, transparent 55%),
+      linear-gradient(180deg, #f3f4f7 0%, #eceef3 100%);
+    background-attachment: fixed;
+    padding-top: 24px;
+    padding-bottom: calc(var(--nav-h) + 36px);
+  }
+
+  .app {
+    max-width: 520px;
+    background: var(--surface);
+    border-radius: 22px;
+    box-shadow:
+      0 30px 60px rgba(20, 24, 50, 0.12),
+      0 8px 20px rgba(20, 24, 50, 0.08);
+    overflow: hidden;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    min-height: calc(100vh - 48px);
+  }
+
+  /* 顶栏在卡片内,顶角随卡片圆角 */
+  .top-bar {
+    border-radius: 22px 22px 0 0;
+  }
+
+  /* 底部 Tab 不再贴屏幕底,而是贴在"手机卡片"底部 */
+  .bottom-nav {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    bottom: 12px;
+    transform: translateX(-50%);
+    width: 520px;
+    max-width: calc(100vw - 24px);
+    border-radius: 0 0 22px 22px;
+    border-top: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 30px rgba(20, 24, 50, 0.12);
+  }
+
+  .bottom-nav-inner {
+    max-width: 520px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* AI 悬浮按钮贴在卡片右下,不再追屏幕角 */
+  .ai-fab {
+    right: calc(50vw - 260px - 8px);
+    bottom: calc(var(--nav-h) + 28px);
+  }
+
+  /* AI 弹窗:PC 居中且限宽 */
+  .ai-modal {
+    align-items: center;
+    padding: 24px;
+  }
+  .ai-panel {
+    max-width: 460px;
+    height: 78vh;
+    max-height: 720px;
+    border-radius: 18px;
+  }
+}
+
+@media (min-width: 1100px) {
+  /* 大屏再略放宽,但内容栏依然不展宽,保持移动端阅读节奏 */
+  .app {
+    max-width: 560px;
+  }
+  .bottom-nav {
+    width: 560px;
+  }
+  .ai-fab {
+    right: calc(50vw - 280px - 8px);
+  }
+}
+
 /* ============ AI 助手悬浮窗 ============ */
 .ai-assistant {
   position: fixed;
